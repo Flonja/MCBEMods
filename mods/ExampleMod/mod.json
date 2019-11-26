@@ -1,0 +1,20 @@
+{
+	"name": "ExampleMod",
+	"description": "Example mod showing the API"
+	"main": "index.js",
+	"version": "1.0.0",
+	"packets": {
+		"toClient": [
+			"TextPacket"
+		],
+		"toServer": [
+			"TextPacket"
+		]
+	},
+	"api": [
+		"1.0.0"
+	],
+	"authors": [
+		"Flonja"
+	]
+}
