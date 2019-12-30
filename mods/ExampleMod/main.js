@@ -3,26 +3,26 @@ var modalForm = new ModalFormWindow("Testing", "Choose!", "yes", "no");
 /*
 Equivalent of:
 client.on("packet", function(pk) {
-	if(pk instanceof SetLocalPlayerAsInitializedPacket) {
-		// do something
-	}
-	return true;
+    if(pk instanceof SetLocalPlayerAsInitializedPacket) {
+        // do something
+    }
+    return true;
 });
 */
 client.on("connected", function() {
-	client.sendMessage("Helloe and welcome to the MCBEMods proxy");
-	modalForm.setTitle(modalForm.getTitle() + client.getAuthData().getDisplayName());
-	client.showWindow(modalForm, 99990);
+    client.sendMessage("Helloe and welcome to the MCBEMods proxy");
+    modalForm.setTitle(modalForm.getTitle() + client.getAuthData().getDisplayName());
+    client.showWindow(modalForm, 99990);
 });
 
 log.info(TransferPacket);
 
 client.on("packet", function(pk) {
-	if(pk instanceof SetLocalPlayerAsInitializedPacket) {
-	    log.info("sent 'hello' message");
-		server.sendMessage("Hello");
-	}
-	return true;
+    if(pk instanceof SetLocalPlayerAsInitializedPacket) {
+        log.info("sent 'hello' message");
+        server.sendMessage("Hello");
+    }
+    return true;
 });
 
 client.on("command", function(command, args) {
@@ -33,13 +33,13 @@ client.on("command", function(command, args) {
         client.showWindow(modalForm, 99990);
         return false;
     }
-	return true;
+    return true;
 });
 
 server.on("message", function(message) {
     log.info("[CHAT]: " + message);
-	//client.sendMessage(message);
-	return true;
+    //client.sendMessage(message);
+    return true;
 });
 
 // FORMS
@@ -53,5 +53,5 @@ client.on("formResponse", function(id, response) {
             return false;
         }
     }
-	return true;
+    return true;
 });
